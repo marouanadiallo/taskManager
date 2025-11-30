@@ -6,8 +6,26 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style>
+    div.loading-overlay {
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, .15);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    div.loading-overlay p {
+      font-size: 1.5rem;
+      color: #333;
+    }
+  </style>
 </head>
 <body>
-  <tsk-root></tsk-root>
+  <tsk-root>
+    <div class="loading-overlay">
+      <p>Loading...</p>
+    </div>
+  </tsk-root>
 </body>
 </html>
