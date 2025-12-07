@@ -5,7 +5,10 @@ import { RouterOutlet } from '@angular/router';
   selector: 'tsk-root',
   imports: [RouterOutlet],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styles:` :host {
+    display: block;
+    height: 100%;
+  } `,
 })
 export class App {
   protected readonly title = signal('task-manager');

@@ -1,0 +1,26 @@
+@use '@angular/material' as mat;
+@use "./_theme-colors" as cmz-theme;
+
+$light-theme: mat.define-theme(
+  (
+    color: (
+      primary: cmz-theme.$primary-palette,
+      tertiary: cmz-theme.$tertiary-palette,
+      theme-type: light,
+    ),
+    typography: (
+        plain-family: 'Roboto, "Helvetica Neue", sans-serif',
+
+    ),
+    density: (
+        scale: -2
+    ),
+  )
+);
+
+@mixin light-theme {
+  @include mat.button-theme($light-theme);
+  @include mat.toolbar-theme($light-theme);
+  @include mat.sidenav-theme($light-theme);
+  @include cmz-theme.high-contrast-overrides(light);
+}

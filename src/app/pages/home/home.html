@@ -1,20 +1,29 @@
-<header class="app-header">
-    <mat-toolbar>
-        <button matIconButton class="example-icon" aria-label="Example icon-button with menu icon">
-            <mat-icon>menu</mat-icon>
-        </button>
-        <span>My App</span>
-        <span class="example-spacer"></span>
-        <button matIconButton class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-            <mat-icon>favorite</mat-icon>
-        </button>
-        <button matIconButton class="example-icon" aria-label="Example icon-button with share icon">
-            <mat-icon>share</mat-icon>
-        </button>
-    </mat-toolbar>
-</header>
-
-<main>
-    <p>This is my custom button:</p>
-    <tsk-button-customized [label]="labelText" (clickEvent)="logEvent($event)"></tsk-button-customized>
-</main>
+<mat-drawer-container class="app-layout-container">
+    <mat-drawer mode="side" opened>
+        <nav>
+            <p>Navigation Drawer</p>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </mat-drawer>
+    <mat-drawer-content style="width: 100%;">
+        <header class="app-header">
+            <mat-toolbar>
+                <button matIconButton class="" aria-label="icon-button with menu icon">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <span>My App</span>
+                <span class="spacer"></span>
+                <button matIconButton class="" aria-label="icon-button with heart icon">
+                    <mat-icon>favorite</mat-icon>
+                </button>
+                <button matIconButton class="icon-btn-primary" aria-label="icon-button with share icon">
+                    <mat-icon>share</mat-icon>
+                </button>
+            </mat-toolbar>
+        </header>
+    </mat-drawer-content>
+</mat-drawer-container>

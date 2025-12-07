@@ -1,12 +1,31 @@
 @use '@angular/material' as mat;
+@use './../../styles/light-theme.scss' as lt;
 
-.example-spacer {
-  flex: 1 1 auto;
+:host {
+  display: block;
+  height: 100vh;
+  height: 100dvh;
+  height: 100svh;
+
+  @include mat.toolbar-overrides((
+    container-background-color: #{mat.get-theme-color(lt.$light-theme, surface-container)},
+    
+  ));
+
+   @include mat.sidenav-overrides((
+    container-shape: 0px,
+    container-background-color: #{mat.get-theme-color(lt.$light-theme, primary)},
+    container-text-color: #{mat.get-theme-color(lt.$light-theme, on-primary)},
+  ));
 }
 
 .app-header {
-    @include mat.toolbar-overrides((
-    container-background-color: orange,
-    container-text-color: red,
-  ));
+  .spacer {
+    flex: 1 1 auto;
+  }
+}
+
+.app-layout-container {
+  display: flex;
+  height: 100%;
 }

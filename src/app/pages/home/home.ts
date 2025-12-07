@@ -1,18 +1,18 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
-import { ButtonCustomized } from '../../shared/components/button-customized/button-customized';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
+import { MatSidenavModule } from '@angular/material/sidenav';
+
 @Component({
   selector: 'tsk-home',
   imports: [
-    ButtonCustomized,
-
     MatToolbarModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatSidenavModule
   ],
   templateUrl: './home.html',
   styleUrl: './home.scss',
