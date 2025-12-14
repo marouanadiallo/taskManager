@@ -1,11 +1,23 @@
-import { ChangeDetectionStrategy, Component, ViewChild, signal } from '@angular/core';
-import { MatDrawer } from '@angular/material/sidenav';
+import { 
+  ChangeDetectionStrategy, 
+  Component, 
+  signal 
+} from '@angular/core';
+
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
+import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
+
+
+declare type MenuType = {
+  text: string;
+  icon: string;
+  route?: string;
+};
 
 @Component({
   selector: 'tsk-home',
@@ -13,22 +25,27 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    MatSidenavModule
+    MatSidenavModule,
+
+    MatListModule,
   ],
   templateUrl: './home.html',
   styleUrl: './home.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Home {
-  @ViewChild('drawer') drawer!: MatDrawer;
-  sidebarOpen = signal(true);
+
+  menus = signal<MenuType[]>(
+    [
+      { text: 'Task manager', icon: 'format_list_bulleted_add' },
+      { text: 'Admin', icon: 'settings' },
+      { text: 'Contact', icon: 'contacts' },
+    ]
+  );
+
+
 
   labelText = 'Sign in';
-
-  toggleSidebar() {
-    this.drawer.toggle();
-    this.sidebarOpen.set(!this.sidebarOpen());
-  }
 
   logEvent(event: any) {
     console.log('Button clicked event received in Home component:', event);

@@ -9,6 +9,7 @@
 
 html {
  @include lt.light-theme();
+ --mat-list-active-indicator-shape: 0px;
 }
 
 html, body {
@@ -25,4 +26,10 @@ body {
 
 .icon-btn-primary {
   @include mat.icon-button-color(lt.$light-theme, primary);
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }

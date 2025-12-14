@@ -1,30 +1,36 @@
 <mat-drawer-container class="app-layout-container">
-    <mat-drawer #drawer mode="side" opened class="app-sidebar">
+    <mat-drawer #sideNav mode="side" opened class="app-sidebar">
         <div class="sidebar-logo">
-            <mat-icon class="logo-icon">task_alt</mat-icon>
-            <span class="logo-text">TaskManager</span>
+            <mat-icon class="logo-icon" fontSet="material-symbols-outlined">task_alt</mat-icon>
         </div>
         <nav class="sidebar-nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
-            </ul>
+            <mat-nav-list >
+                <ul>
+                    @for (mi of menus(); track $index) {
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"  mat-list-item>
+                                <mat-icon class="nav-icon" fontSet="material-symbols-outlined" matListItemIcon>{{ mi.icon }}</mat-icon>
+                                <span class="nav-text" matListItemTitle>{{ mi.text }}</span>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </mat-nav-list>
         </nav>
     </mat-drawer>
     <mat-drawer-content style="width: 100%;">
         <header class="app-header">
             <mat-toolbar>
-                <button matIconButton (click)="toggleSidebar()" aria-label="icon-button with menu icon">
-                    <mat-icon>{{ sidebarOpen() ? 'close' : 'menu' }}</mat-icon>
+                <button matIconButton (click)="sideNav.toggle()" class="icon-btn-primary">
+                    <mat-icon fontSet="material-symbols-outlined">menu</mat-icon>
                 </button>
-                <span>My App</span>
+                <h1 class="mat-headline-medium">TaskManager</h1>
                 <span class="spacer"></span>
-                <button matIconButton class="" aria-label="icon-button with heart icon">
-                    <mat-icon>favorite</mat-icon>
+                <button matIconButton class="icon-btn-primary" >
+                    <mat-icon fontSet="material-symbols-outlined">favorite</mat-icon>
                 </button>
-                <button matIconButton class="icon-btn-primary" aria-label="icon-button with share icon">
-                    <mat-icon>share</mat-icon>
+                <button matIconButton class="icon-btn-primary">
+                    <mat-icon fontSet="material-symbols-outlined">share</mat-icon>
                 </button>
             </mat-toolbar>
         </header>

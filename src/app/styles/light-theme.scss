@@ -18,9 +18,12 @@ $light-theme: mat.define-theme(
 );
 
 @mixin light-theme {
+  @include mat.list-theme($light-theme);
   @include mat.button-theme($light-theme);
   @include mat.toolbar-theme($light-theme);
   @include mat.sidenav-theme($light-theme);
   @include mat.icon-button-theme($light-theme);
   @include cmz-theme.high-contrast-overrides(light);
+
+  @include mat.typography-hierarchy($light-theme);
 }
