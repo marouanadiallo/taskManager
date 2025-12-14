@@ -9,11 +9,10 @@ $light-theme: mat.define-theme(
       theme-type: light,
     ),
     typography: (
-        plain-family: 'Roboto, "Helvetica Neue", sans-serif',
-
+      plain-family: 'Roboto, "Helvetica Neue", sans-serif',
     ),
     density: (
-        scale: -2
+      scale: -2
     ),
   )
 );
@@ -22,5 +21,6 @@ $light-theme: mat.define-theme(
   @include mat.button-theme($light-theme);
   @include mat.toolbar-theme($light-theme);
   @include mat.sidenav-theme($light-theme);
+  @include mat.icon-button-theme($light-theme);
   @include cmz-theme.high-contrast-overrides(light);
 }

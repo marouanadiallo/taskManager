@@ -1,19 +1,22 @@
 <mat-drawer-container class="app-layout-container">
-    <mat-drawer mode="side" opened>
-        <nav>
-            <p>Navigation Drawer</p>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+    <mat-drawer #drawer mode="side" opened class="app-sidebar">
+        <div class="sidebar-logo">
+            <mat-icon class="logo-icon">task_alt</mat-icon>
+            <span class="logo-text">TaskManager</span>
+        </div>
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
             </ul>
         </nav>
     </mat-drawer>
     <mat-drawer-content style="width: 100%;">
         <header class="app-header">
             <mat-toolbar>
-                <button matIconButton class="" aria-label="icon-button with menu icon">
-                    <mat-icon>menu</mat-icon>
+                <button matIconButton (click)="toggleSidebar()" aria-label="icon-button with menu icon">
+                    <mat-icon>{{ sidebarOpen() ? 'close' : 'menu' }}</mat-icon>
                 </button>
                 <span>My App</span>
                 <span class="spacer"></span>
