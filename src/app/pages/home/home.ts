@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewChild, signal } from '@angular/core';
+import { MatDrawer } from '@angular/material/sidenav';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -19,7 +20,15 @@ import { MatSidenavModule } from '@angular/material/sidenav';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Home {
+  @ViewChild('drawer') drawer!: MatDrawer;
+  sidebarOpen = signal(true);
+
   labelText = 'Sign in';
+
+  toggleSidebar() {
+    this.drawer.toggle();
+    this.sidebarOpen.set(!this.sidebarOpen());
+  }
 
   logEvent(event: any) {
     console.log('Button clicked event received in Home component:', event);
