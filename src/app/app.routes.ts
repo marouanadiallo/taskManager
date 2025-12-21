@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { APP_ROUTES } from './pages/home/home.routes';
 
 export const routes: Routes = [
     {
@@ -7,20 +8,9 @@ export const routes: Routes = [
         pathMatch: 'full'
     },
     {
-      path: 'home',
-      loadComponent: () => import('./pages/home/home').then(m => m.Home)
-    },
-    {
-          path: 'tasks',
-          loadComponent: () => import('./pages/task-manager/task-manager').then(m => m.TaskManager)
-    },
-    {
-      path: 'admin',
-      loadComponent: () => import('./pages/admin/admin').then(m => m.Admin)
-    },
-    {
-      path: 'contact',
-      loadComponent: () => import('./pages/contact/contact').then(m => m.Contact)
+        path: 'home',
+        loadComponent: () => import('./pages/home/home').then(m => m.Home),
+        children: APP_ROUTES
     },
     {
         path: '**',
