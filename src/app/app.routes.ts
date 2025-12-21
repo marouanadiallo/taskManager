@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { APP_ROUTES } from './pages/home/home.routes';
 
 export const routes: Routes = [
     {
@@ -8,7 +9,8 @@ export const routes: Routes = [
     },
     {
         path: 'home',
-        loadComponent: () => import('./pages/home/home').then(m => m.Home)
+        loadComponent: () => import('./pages/home/home').then(m => m.Home),
+        children: APP_ROUTES
     },
     {
         path: '**',
