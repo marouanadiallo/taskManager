@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>{{ data.isEditMode ? 'Modifier la tâche' : 'Ajouter une nouvelle tâche' }}</h2>
+<mat-dialog-content>
+  <div class="dialog-form">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nom de la tâche</mat-label>
+      <input matInput [(ngModel)]="data.name" placeholder="Ex: Réviser le code" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Description</mat-label>
+      <textarea
+        matInput
+        [(ngModel)]="data.description"
+        placeholder="Décrivez la tâche..."
+        rows="4"
+      ></textarea>
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Annuler</button>
+  <button
+    mat-flat-button
+    color="primary"
+    [mat-dialog-close]="data"
+    [disabled]="!data.name"
+  >
+    {{ data.isEditMode ? 'Modifier' : 'Ajouter' }}
+  </button>
+</mat-dialog-actions>

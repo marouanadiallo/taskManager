@@ -1,9 +1,9 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Sidebar } from './layouts/sidebar/sidebar';
 
 @Component({
   selector: 'tsk-root',
-  imports: [RouterOutlet],
+  imports: [Sidebar],
   templateUrl: './app.html',
   styles:` :host {
     display: block;
