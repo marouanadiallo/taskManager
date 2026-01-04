@@ -1,6 +1,6 @@
 export interface Task {
-  reference: string;
-  name: string;
-  description: string;
-  status: 'pending' | 'completed';
+  userId:  number;
+  id:      number;
+  title:   string;
+  completed: boolean;
 }

@@ -1,28 +1,15 @@
-<mat-card class="shadow-none">
-    <mat-card-content>
-        <h2>Tasks Page</h2>
-        <button mat-raised-button color="primary">Add New Task</button>
-        <table>
-            <tr>
-                <th>Task ID</th>
-                <th>Task Name</th>
-                <th>Status</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Design UI</td>
-                <td>In Progress</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Develop Backend</td>
-                <td>Pending</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Testing</td>
-                <td>Completed</td>
-            </tr>
-        </table>
-    </mat-card-content>
-</mat-card>
+<div class="tasks-container">
+    @for (task of (tasks$ | async); track task.id) {
+    <mat-card class="task-card">
+        <mat-card-header>
+            <mat-card-title>{{ task.title }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p><strong>ID:</strong> {{ task.id }}</p>
+            <p><strong>Status:</strong> {{ task.completed ? 'Completed' : 'Pending' }}</p>
+        </mat-card-content>
+    </mat-card>
+} @empty {
+    <p>No tasks available.</p>
+}
+</div>
