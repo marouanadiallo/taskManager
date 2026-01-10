@@ -1,6 +1,9 @@
 @use '@angular/material' as mat;
 @use "./_theme-colors" as cmz-theme;
 
+// App-wide font family (used by Material typography and applied globally)
+$app-font-family: 'Roboto, "Helvetica Neue", sans-serif';
+
 $light-theme: mat.define-theme(
   (
     color: (
@@ -9,7 +12,7 @@ $light-theme: mat.define-theme(
       theme-type: light,
     ),
     typography: (
-      plain-family: 'Roboto, "Helvetica Neue", sans-serif',
+      plain-family: $app-font-family,
     ),
     density: (
       scale: -2
@@ -27,5 +30,16 @@ $light-theme: mat.define-theme(
   @include mat.icon-button-theme($light-theme);
   @include cmz-theme.high-contrast-overrides(light);
 
+  // Apply Material typography hierarchy
   @include mat.typography-hierarchy($light-theme);
+
+  // Apply app font globally so non-Material elements inherit the same font
+  :root,
+  html,
+  body,
+  app-root {
+    font-family: $app-font-family;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }

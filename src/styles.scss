@@ -18,10 +18,91 @@ html, body {
   min-height: 100svh;
 }
 
-body { 
-  margin: 0; 
+body {
+  margin: 0;
   position: relative;
-  font-family: Roboto, "Helvetica Neue", sans-serif; 
+  font-family: lt.$app-font-family;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure key app/material elements inherit the same font */
+app-root, .container, .form-container, .task-card, mat-card, table, mat-paginator, mat-chip {
+  font-family: lt.$app-font-family;
+}
+
+/* --- Global utilities & shared component rules (used across pages) --- */
+.header-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn-small {
+  min-width: 92px;
+}
+
+/* Status chip/button shared styles (used by table and other places) */
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: none;
+  cursor: default;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+  border: 1px solid transparent;
+  background: transparent;
+}
+
+.status-chip.status-completed {
+  background-color: #c8e6c9;
+  color: #2e7d32;
+  border-color: rgba(46, 125, 50, 0.12);
+}
+
+.status-chip.status-in-progress {
+  background-color: #fff9c4;
+  color: #f57f17;
+  border-color: rgba(245, 127, 23, 0.08);
+}
+
+.status-chip.status-pending {
+  background-color: #ffccbc;
+  color: #d84315;
+  border-color: rgba(216, 67, 21, 0.08);
+}
+
+/* Hover/focus/active styles with high specificity to avoid Material overrides */
+button.status-chip.status-completed:hover,
+.status-chip.status-completed:hover,
+button.status-chip.status-completed:focus {
+  background-color: #a5d6a7 !important;
+  color: #2e7d32 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 8px rgba(46, 125, 50, 0.3) !important;
+}
+
+button.status-chip.status-in-progress:hover,
+.status-chip.status-in-progress:hover,
+button.status-chip.status-in-progress:focus {
+  background-color: #fff59d !important;
+  color: #f57f17 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 8px rgba(245, 127, 23, 0.3) !important;
+}
+
+button.status-chip.status-pending:hover,
+.status-chip.status-pending:hover,
+button.status-chip.status-pending:focus {
+  background-color: #ffab91 !important;
+  color: #d84315 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 8px rgba(216, 67, 21, 0.3) !important;
 }
 
 .icon-btn-primary {

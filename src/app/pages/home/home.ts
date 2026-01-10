@@ -1,10 +1,10 @@
-import { 
+import {
   AfterViewInit,
-  ChangeDetectionStrategy, 
-  Component, 
-  OnInit, 
-  signal, 
-  viewChild, 
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  signal,
+  viewChild,
 } from '@angular/core';
 
 
@@ -46,8 +46,8 @@ export class Home implements OnInit, AfterViewInit { // home allouer
   menus = signal<MenuType[]>(
     [
       { text: 'Task manager', icon: 'format_list_bulleted_add', route: 'tasks' },
-      { text: 'Admin', icon: 'settings' },
-      { text: 'Contact', icon: 'contacts' },
+      { text: 'Admin', icon: 'settings', route: 'admin' },
+      { text: 'Contact', icon: 'contacts', route: 'contact' },
     ]
   );
 
